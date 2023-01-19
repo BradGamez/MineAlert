@@ -15,7 +15,6 @@ public class DatabaseFile extends AbstractFile {
     public void setData() {
         if (isFileNotEmpty()) return;
         final FileConfiguration config = getFileConfiguration();
-        config.set("enable", false);
         config.set("host", "localhost");
         config.set("port", 3306);
         config.set("database", "minealertdb");
