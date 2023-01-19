@@ -86,7 +86,7 @@ public class MiningUserDataHandler {
                     ps.setInt(i, 0);
                 }
 
-                LoggerUtil.log(name + " has been inserted to the database!");
+                //LoggerUtil.log(name + " has been inserted to the database!");
             });
         }
 
@@ -109,7 +109,7 @@ public class MiningUserDataHandler {
         }).whenComplete((aVoid, throwable) -> {
             userManager.removePlayer(player);
             staffNotifications.removeIf((t) -> staffNotifications.contains(playerUUID));
-            LoggerUtil.log("Successfully sent " + player.getName() + " data to the database!");
+            //LoggerUtil.log("Successfully sent " + player.getName() + " data to the database!");
         });
     }
 
