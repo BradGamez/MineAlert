@@ -1,0 +1,8 @@
+main: io.github.dougcodez.minealert.MineAlert
+name: MineAlert
+version: 1.12
+api-version: 1.13
+author: DougCodez
+commands:
+  minealert:
+    aliases: [ma]
