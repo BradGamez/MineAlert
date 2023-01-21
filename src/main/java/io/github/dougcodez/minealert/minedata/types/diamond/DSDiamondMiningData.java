@@ -7,7 +7,6 @@ import io.github.dougcodez.minealert.utils.Version;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.Collections;
 import java.util.Map;
 import java.util.UUID;
 
@@ -22,7 +21,10 @@ public class DSDiamondMiningData extends MiningDataProperties {
 
     @Override
     public ItemStack getMenuIcon() {
-        if (!matchesPriorities()) return ItemBuilder.Builder.getInstance().itemType(Material.BARRIER).itemAmount(1).itemName("&c&lX").itemLore(Collections.singletonList("&cDisabled Ore or Unsupported Version!")).build();
+        if (!matchesPriorities()) {
+            return getNonSupportedIcon();
+        }
+
         return ItemBuilder.Builder.getInstance()
                 .itemType(Material.valueOf(getInspectConfig().getString("inspect.ds_diamond.item-type")))
                 .itemAmount(1)

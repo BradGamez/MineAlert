@@ -21,9 +21,7 @@ public class CacheSystem {
             UUID uuid = users.getPlayer().getUniqueId();
             MineAlert.getInstance().getUserDataHandler()
                     .getMiningDataProperties()
-                    .forEach(dataProperties -> {dataProperties.getCacheMap().keySet()
-                                .forEach(player -> dataProperties.sendCacheDataToDatabase(uuid));
-                    });
+                    .forEach(dataProperties -> dataProperties.getCacheMap().keySet().forEach(player -> dataProperties.sendCacheDataToDatabase(uuid)));
         }
     }
 
@@ -32,8 +30,6 @@ public class CacheSystem {
         for (MiningUser users : userManager.getUsers()) {
             UUID uuids = users.getPlayer().getUniqueId();
             dataHandler.savePlayerData(uuids);
-
-
             for (MiningDataProperties dataProperties : dataHandler.getMiningDataProperties()) {
                 dataProperties.addToMineStatistic(uuids);
             }

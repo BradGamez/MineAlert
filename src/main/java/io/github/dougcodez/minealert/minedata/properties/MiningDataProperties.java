@@ -1,6 +1,7 @@
 package io.github.dougcodez.minealert.minedata.properties;
 
 import io.github.dougcodez.minealert.MineAlert;
+import io.github.dougcodez.minealert.builder.ItemBuilder;
 import io.github.dougcodez.minealert.mysql.utils.CommonQueryTool;
 import io.github.dougcodez.minealert.utils.Version;
 import org.bukkit.Bukkit;
@@ -8,6 +9,8 @@ import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -68,5 +71,15 @@ public abstract class MiningDataProperties {
 
     public boolean matchesPriorities() {
         return isEnabled() && Version.getServerVersion(Bukkit.getServer()).isNewerOrSameThan(getSupportedVersion());
+    }
+
+    public ItemStack getNonSupportedIcon() {
+        List<String> defaultLore = Collections.singletonList("&cDisabled Ore or Unsupported Version!");
+        return ItemBuilder.Builder.getInstance()
+                .itemType(Material.BARRIER)
+                .itemAmount(1)
+                .itemName("&c&lX")
+                .itemLore(defaultLore)
+                .build();
     }
 }
