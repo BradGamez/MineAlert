@@ -1,6 +1,6 @@
 main: io.github.dougcodez.minealert.MineAlert
 name: MineAlert
-version: 1.15
+version: 1.16
 api-version: 1.13
 author: DougCodez
 commands:
